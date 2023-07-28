@@ -1,0 +1,70 @@
+<!-- Main navigation container -->
+<nav class="flex-no-wrap relative flex w-full items-center justify-between bg-white py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4"
+    data-te-navbar-ref>
+    <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <!-- Hamburger button for mobile view -->
+        <button
+            class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+            type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Hamburger icon -->
+            <span class="[&>svg]:w-7">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
+                    <path fill-rule="evenodd"
+                        d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </button>
+
+        <!-- Collapsible navigation container -->
+        <div class="!visible hidden  flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+            id="navbarSupportedContent1" data-te-collapse-item>
+
+            <!-- Left navigation links -->
+            <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+                <li class="mb-1 mr-10 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <!-- Dashboard link -->
+                    <a class="text-black font-semibold text-2xl no-underline  transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                        href="#" data-te-nav-link-ref>Berlanty</a>
+                </li>
+                <li class="mb-1 mt-1 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <!-- Dashboard link -->
+                    <a class="text-black no-underline  transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                        href="#" data-te-nav-link-ref>Home</a>
+                </li>
+                <!-- Team link -->
+                <li class="mb-1 lg:mb-0 lg:pr-2 mt-1" data-te-nav-item-ref>
+                    <a class="text-black no-underline  transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                        href="#" data-te-nav-link-ref>Shop</a>
+                </li>
+                <!-- Projects link -->
+                <li class="mb-1 lg:mb-0 lg:pr-2 mt-1" data-te-nav-item-ref>
+                    <a class="text-black transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 no-underline  lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                        href="#" data-te-nav-link-ref>Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right elements -->
+        <div class="relative  flex items-center">
+            <!-- Cart Icon -->
+            <a class="mr-4 no-underline   text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                href="#">
+                <span class="[&>svg]:w-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                        <path
+                            d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                    </svg>
+                </span>
+                <!-- Cart counter -->
+                <span
+                    class="absolute -mt-7 ml-2.5 rounded-full bg-danger-500 px-[0.35em] py-[0.15em] text-[0.6rem] font-bold leading-none text-white">1</span>
+            </a>
+            <button type="button"
+                class="text-neutral-500   hover:text-white border border-neutral-500 hover:border-danger-500 hover:bg-danger-500 focus:ring-4 focus:outline-none focus:ring-danger-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 mb-1 mt-1 ">Login</button>
+            <button type="button"
+                class="text-neutral-500   hover:text-white border border-neutral-500 hover:border-danger-500 hover:bg-danger-500 focus:ring-4 focus:outline-none focus:ring-danger-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 mb-1 mt-1">Register</button>
+        </div>
+    </div>
+</nav>
