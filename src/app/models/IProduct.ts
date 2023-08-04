@@ -1,9 +1,10 @@
 import { ICategory } from "./icategory";
 
 export interface IProduct{
-    Id:number,
-    Name:string,
-    Description:string,
-    Price:number,
+    id:number,
+    name:string,
+    description:string,
+    price:number,
+    pictureUrl:string,
     category:ICategory
 }

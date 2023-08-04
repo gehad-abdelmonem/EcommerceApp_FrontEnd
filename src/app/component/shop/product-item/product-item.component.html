@@ -1,1 +1,21 @@
-<p>product-item works!</p>
+<div *ngIf="product"
+    class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
+        <img class="border-b-2 border-gray-200  w-full rounded-t-lg  transition duration-300 ease-in-out hover:scale-125"
+            src="./assets/{{product.pictureUrl}}" [alt]="product.name" />
+    </div>
+    <div class=" pb-3 mt-2">
+        <div class="flex flex-col items-center justify-center mb-2 pb-2 border-b border-gray-200">
+            <a class="no-underline text-black" href="">
+                <span class="font-semibold text-xs">{{product.name}}</span>
+            </a>
+            <span class="text-danger-600 text-xs">{{product.price|currency:"EPG "}} </span>
+        </div>
+        <div class="flex items-center justify-between   px-3">
+            <button class="hover:text-danger-500 text-xs"><i class="fa fa-eye text-danger-500"></i> View Detail
+            </button>
+            <button class="hover:text-danger-500 text-xs"><i class="fa fa-shopping-cart text-danger-500"></i> Add To Cart
+            </button>
+        </div>
+    </div>
+</div>
