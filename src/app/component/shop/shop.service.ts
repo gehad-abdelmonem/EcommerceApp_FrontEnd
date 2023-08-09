@@ -23,7 +23,7 @@ export class ShopService {
     params=params.append('Sort', shopParams.sort);  
     params = params.append('PageNumber', shopParams.pageNumber);  
     params = params.append('PageSize', shopParams.pageSize);
-    params = params.append('Search', shopParams.search)
+    if(shopParams.search) params = params.append('Search', shopParams.search)
     return this.HttpClient.get<PagedCollectionResponse>(`${this.APIURL}/product/paginate`,{params:params});
   }
 

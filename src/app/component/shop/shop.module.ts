@@ -5,6 +5,7 @@ import { ShopRoutingModule } from './shop-routing.module';
 import { ShopComponent } from './shop/shop.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     ShopRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   exports:[ShopComponent]
 })

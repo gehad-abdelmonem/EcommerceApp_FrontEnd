@@ -27,11 +27,15 @@
                 <div class="relative  flex w-full flex-wrap items-stretch">
                     <input type="search"
                         class="relative h-8 m-0  placeholder-neutral-400 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3  text-base font-normal  text-neutral-700 focus:ring-danger-50 focus:border-danger-50 "
-                        placeholder="search by name" aria-label="Search" aria-describedby="button-addon1" />
+                        placeholder="name" aria-label="Search" aria-describedby="button-addon1" 
+                        [(ngModel)]="shopParams.search"
+                        (input)="onReset()"
+                        />
 
                     <!--Search button-->
                     <button
                         class="relative z-[2] h-8 flex bg-white justify-center items-center rounded-r border border-solid border-neutral-300 bg-transparent px-3 py-2.5 text-xs font-medium uppercase    focus:outline-none"
+                        (click)="onSearch()"
                         type="button" id="button-addon1" data-te-ripple-init data-te-ripple-color="light">
                         <i class="fa fa-search text-danger-500 text-sm"></i>
                     </button>
