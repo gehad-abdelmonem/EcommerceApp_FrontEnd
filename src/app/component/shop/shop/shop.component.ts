@@ -4,6 +4,7 @@ import { IProduct } from 'src/app/models/IProduct';
 import { ICategory } from 'src/app/models/icategory';
 import { ShopService } from '../shop.service';
 import { Ripple,initTE,} from "tw-elements";
+import { shopParams } from 'src/app/models/shopParams';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -12,8 +13,8 @@ import { Ripple,initTE,} from "tw-elements";
 export class ShopComponent implements OnInit {
   categories: ICategory[] = [];
   productList: IProduct[] = [];
-  selectedCategory = 0;
-  selectedSort= "name";
+  shopParams:shopParams = new shopParams();
+  totalCount:number = 0;
   sortOptions = [
     {name:"Alphapitical",value:"name"},
     {name:"Price : Low To High",value:"priceAsc"},
@@ -27,11 +28,11 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
   getProducts() {
-    this.shopService.getProducts(this.selectedCategory,this.selectedSort).subscribe({
+    this.shopService.getProducts(this.shopParams).subscribe({
       next: (resp) => {
-        this.productList = resp.data;
+        this.productList = resp.data as IProduct[];
+        this.totalCount = resp.count;
         console.log(resp.data);
-        console.log(this.selectedCategory);
       },
       error:er=>{
         console.log(er);
@@ -44,11 +45,16 @@ export class ShopComponent implements OnInit {
     });
   }
   onSelectedCategory(categoryId: number) {
-    this.selectedCategory = categoryId;
+    this.shopParams.categoryId = categoryId;
     this.getProducts();
   }
   onSelectedSort(sort:string){
-    this.selectedSort = sort;
+    this.shopParams.sort = sort;
+    this.getProducts();
+  }
+
+  onPageChange(event:any) {
+    this.shopParams.pageNumber = event;
     this.getProducts();
   }
 }

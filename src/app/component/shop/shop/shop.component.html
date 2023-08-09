@@ -15,7 +15,7 @@
         <ul
             class="md:w-11/12 w-full   text-sm   ps-0 text-gray-900 text-opacity-70 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li class="w-full px-4 py-2 border-b border-gray-200 first:rounded-t-lg" *ngFor="let category of categories"
-                [ngClass]="{'bg-danger-500':selectedCategory==category.id,'text-white':selectedCategory==category.id}"
+                [ngClass]="{'bg-danger-500':shopParams.categoryId==category.id,'text-white':shopParams.categoryId==category.id}"
                 (click)="onSelectedCategory(category.id)">
                 {{category.name}}</li>
         </ul>
@@ -41,33 +41,39 @@
 
             <div class="relative col-span-1 col-start-9 " data-te-dropdown-ref>
                 <button
-                  class="flex items-center whitespace-nowrap rounded justify-center px-3 pb-[4px] pt-[6px] text-sm font-normal border border-1  leading-normal text-neutral-600  transition duration-150 ease-in-out   focus:outline-none focus:ring-0   motion-reduce:transition-none"
-                  type="button"
-                  id="dropdownMenuSmallButton"
-                  data-te-dropdown-toggle-ref
-                  aria-expanded="false"
-                  data-te-ripple-init
-                  data-te-ripple-color="light">
-                  sort by
-                  <span class=" w-2">
-                    <i class='fa fa-caret-down h-5 w-5 text-sm '></i>
-                  </span>
+                    class="flex items-center whitespace-nowrap rounded justify-center px-3 pb-[4px] pt-[6px] text-sm font-normal border border-1  leading-normal text-neutral-600  transition duration-150 ease-in-out   focus:outline-none focus:ring-0   motion-reduce:transition-none"
+                    type="button" id="dropdownMenuSmallButton" data-te-dropdown-toggle-ref aria-expanded="false"
+                    data-te-ripple-init data-te-ripple-color="light">
+                    sort by
+                    <span class=" w-2">
+                        <i class='fa fa-caret-down h-5 w-5 text-sm '></i>
+                    </span>
                 </button>
-                <ul
-                  class="absolute z-[1000] border border-1 float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base font-normal  [&[data-te-dropdown-show]]:block"
-                  aria-labelledby="dropdownMenuSmallButton"
-                  data-te-dropdown-menu-ref>
-                  <li class="block w-full  hover:bg-neutral-50 ps-0 pe-3 py-2 text-sm font-normal text-neutral-700  active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent " *ngFor="let item of sortOptions" (click)="onSelectedSort(item.value)">
-                    {{item.name}}
-                  </li>
+                <ul class="absolute z-[1000] border border-1 float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base font-normal  [&[data-te-dropdown-show]]:block"
+                    aria-labelledby="dropdownMenuSmallButton" data-te-dropdown-menu-ref>
+                    <li class="block w-full  hover:bg-neutral-50 ps-0 pe-3 py-2 text-sm font-normal text-neutral-700  active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent "
+                        *ngFor="let item of sortOptions" (click)="onSelectedSort(item.value)">
+                        {{item.name}}
+                    </li>
                 </ul>
-              </div>
+            </div>
 
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3  gap-3 ">
-            <ng-container *ngFor="let product of productList">
+            <ng-container *ngFor="let product of productList|paginate:{
+                  itemsPerPage: shopParams.pageSize,
+                  currentPage: shopParams.pageNumber,
+                  totalItems: totalCount
+            }">
                 <app-product-item [product]="product"></app-product-item>
             </ng-container>
+        </div>
+        <div class="flex justify-center mt-5" *ngIf="totalCount>0">
+            <pagination-controls  previousLabel="Prev"
+                                  nextLabel="Next" 
+                                  [responsive]="true"
+                                 (pageChange)="onPageChange($event)">
+            </pagination-controls>
         </div>
     </div>
 </div>

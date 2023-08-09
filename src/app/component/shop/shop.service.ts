@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { ICategory } from 'src/app/models/icategory';
 import { PagedCollectionResponse } from 'src/app/models/PagedCollectionResponse';
+import { shopParams } from 'src/app/models/shopParams';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,14 @@ export class ShopService {
   {
     
   }
-  getProducts(categoryId?:number,sort?:string):Observable<PagedCollectionResponse>
+  getProducts(shopParams:shopParams):Observable<PagedCollectionResponse>
   {
    let params = new HttpParams();
-    if(categoryId) params = params.append('categoryId', categoryId);
-    if(sort) params=params.append('Sort', sort);    
+    if(shopParams.categoryId>0) params = params.append('categoryId', shopParams.categoryId);
+    params=params.append('Sort', shopParams.sort);  
+    params = params.append('PageNumber', shopParams.pageNumber);  
+    params = params.append('PageSize', shopParams.pageSize);
+    params = params.append('Search', shopParams.search)
     return this.HttpClient.get<PagedCollectionResponse>(`${this.APIURL}/product/paginate`,{params:params});
   }
 
