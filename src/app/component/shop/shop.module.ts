@@ -6,11 +6,13 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
     ShopComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

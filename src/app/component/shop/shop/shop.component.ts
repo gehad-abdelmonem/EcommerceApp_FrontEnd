@@ -3,7 +3,7 @@ import { ProductService } from '../../../services/product.service';
 import { IProduct } from 'src/app/models/IProduct';
 import { ICategory } from 'src/app/models/icategory';
 import { ShopService } from '../shop.service';
-import { Ripple,initTE,} from "tw-elements";
+import { Ripple,initTE,Dropdown} from "tw-elements";
 import { shopParams } from 'src/app/models/shopParams';
 @Component({
   selector: 'app-shop',
@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit {
   constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {
-    initTE({ Ripple });
+    initTE({Dropdown, Ripple });
     this.getAllCategories();
     this.getProducts();
   }

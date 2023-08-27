@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ShopModule } from './component/shop/shop.module';
 import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.component';
+import { HomeModule } from './component/home/home.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ShopModule
+    ShopModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
-<div class="mt-3 h-48 bg-primary-50 flex flex-row justify-center items-center mb-20">
+<div class="mt-3 h-48 bg-primary-50 flex flex-row justify-center items-center mb-16">
     <div class=" w-fit h-fit">
         <h4>OUR SHOP</h4>
         <p class="text-xs mt-2 text-center"><a routerLink=""
-                class="text-danger-500 no-underline hover:underline ">Home</a><span class="text-gray-500"> - Shop</span>
+                class="text-danger-500 no-underline hover:underline " routerLink="/home">Home</a><span class="text-gray-500"> - Shop</span>
         </p>
     </div>
 
@@ -72,7 +72,7 @@
                 <app-product-item [product]="product"></app-product-item>
             </ng-container>
         </div>
-        <div class="flex justify-center mt-5" *ngIf="totalCount>0">
+        <div class="flex justify-center mt-4 text-sm" *ngIf="totalCount>0">
             <pagination-controls  previousLabel="Prev"
                                   nextLabel="Next" 
                                   [responsive]="true"

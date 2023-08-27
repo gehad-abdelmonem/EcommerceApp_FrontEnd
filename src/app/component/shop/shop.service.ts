@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ICategory } from 'src/app/models/icategory';
 import { PagedCollectionResponse } from 'src/app/models/PagedCollectionResponse';
 import { shopParams } from 'src/app/models/shopParams';
+import { IProduct } from 'src/app/models/IProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ export class ShopService {
   getAllCategories():Observable<ICategory[]>
   {
     return this.HttpClient.get<ICategory[]>(`${this.APIURL}/Category`);
+  }
+  getProductById(id:number)
+  {
+    return this.HttpClient.get<IProduct>(`${this.APIURL}/Product/${id}`);
+  }
+  getRelatedProducts(categoryId:number,productId:number)
+  {
+    return this.HttpClient.get<IProduct[]>(`${this.APIURL}/Product/related/${categoryId}/${productId}/8`)
   }
 }
