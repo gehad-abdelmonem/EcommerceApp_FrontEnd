@@ -18,7 +18,6 @@ import { HomeModule } from './component/home/home.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ShopModule,
     HomeModule
   ],
   providers: [],

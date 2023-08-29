@@ -19,7 +19,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ShopRoutingModule,
     NgxPaginationModule,
     FormsModule
-  ],
-  exports:[ShopComponent]
+  ]
 })
 export class ShopModule { }
