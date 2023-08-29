@@ -26,6 +26,7 @@ export class ProductDetailsComponent implements OnInit {
         next: (product) => {
           this.product = product;
           console.log(this.product);
+          window.scrollTo({top: 100,left: 100,behavior: "smooth" });
           this.GetRelatedProducts();
         },
         error: (er) => {

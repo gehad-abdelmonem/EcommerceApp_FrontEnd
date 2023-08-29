@@ -3,7 +3,7 @@ import { ProductService } from '../../../services/product.service';
 import { IProduct } from 'src/app/models/IProduct';
 import { ICategory } from 'src/app/models/icategory';
 import { ShopService } from '../shop.service';
-import { Ripple,initTE,Dropdown} from "tw-elements";
+import { Ripple, initTE, Dropdown } from 'tw-elements';
 import { shopParams } from 'src/app/models/shopParams';
 @Component({
   selector: 'app-shop',
@@ -13,17 +13,17 @@ import { shopParams } from 'src/app/models/shopParams';
 export class ShopComponent implements OnInit {
   categories: ICategory[] = [];
   productList: IProduct[] = [];
-  shopParams:shopParams = new shopParams();
-  totalCount:number = 0;
+  shopParams: shopParams = new shopParams();
+  totalCount: number = 0;
   sortOptions = [
-    {name:"Alphapitical",value:"name"},
-    {name:"Price : Low To High",value:"priceAsc"},
-    {name:"Price : High To Low",value:"priceDes"}
-  ]
+    { name: 'Alphapitical', value: 'name' },
+    { name: 'Price : Low To High', value: 'priceAsc' },
+    { name: 'Price : High To Low', value: 'priceDes' },
+  ];
   constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {
-    initTE({Dropdown, Ripple });
+    initTE({ Dropdown, Ripple });
     this.getAllCategories();
     this.getProducts();
   }
@@ -34,9 +34,9 @@ export class ShopComponent implements OnInit {
         this.totalCount = resp.count;
         console.log(resp.data);
       },
-      error:er=>{
+      error: (er) => {
         console.log(er);
-      }
+      },
     });
   }
   getAllCategories() {
@@ -49,24 +49,22 @@ export class ShopComponent implements OnInit {
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
-  onSelectedSort(sort:string){
+  onSelectedSort(sort: string) {
     this.shopParams.sort = sort;
     this.getProducts();
   }
 
-  onPageChange(event:any) {
+  onPageChange(event: any) {
     this.shopParams.pageNumber = event;
     this.getProducts();
+    window.scrollTo({top: 200,left: 100,behavior: 'smooth',});
   }
-  onSearch()
-  {
+  onSearch() {
     this.getProducts();
   }
-  onReset()
-  {
-    if(this.shopParams.search=='')
-    {
-    this.getProducts();
+  onReset() {
+    if (this.shopParams.search == '') {
+      this.getProducts();
     }
   }
 }
