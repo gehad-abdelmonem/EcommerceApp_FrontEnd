@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
@@ -9,6 +9,7 @@ import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.co
 import { HomeModule } from './component/home/home.module';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { ServerErrorComponent } from './component/server-error/server-error.component';
+import { ErrorInterceptor } from './component/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { ServerErrorComponent } from './component/server-error/server-error.comp
     HttpClientModule,
     HomeModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
