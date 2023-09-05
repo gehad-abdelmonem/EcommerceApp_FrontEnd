@@ -8,13 +8,15 @@ import { ShopModule } from './component/shop/shop.module';
 import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.component';
 import { HomeModule } from './component/home/home.module';
 import { NotFoundComponent } from './component/not-found/not-found.component';
+import { ServerErrorComponent } from './component/server-error/server-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     ScrollToTopComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
