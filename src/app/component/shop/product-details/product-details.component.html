@@ -31,9 +31,11 @@
         </div>
     </div>
 </div>
-<div class="text-center mb-4">——<span class="px-2  text-2xl font-bold ">You May Also Like</span>——</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 mx-20">
-    <ng-container *ngFor="let product of relatedProducts">
-        <app-product-item [product]="product"></app-product-item>
-    </ng-container>
+<div *ngIf="relatedProducts">
+    <div class="text-center mb-4">——<span class="px-2  text-2xl font-bold ">You May Also Like</span>——</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 mx-20">
+        <ng-container *ngFor="let product of relatedProducts">
+            <app-product-item [product]="product"></app-product-item>
+        </ng-container>
+    </div>
 </div>
