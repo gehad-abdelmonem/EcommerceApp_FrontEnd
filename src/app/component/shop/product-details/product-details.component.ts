@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IProduct } from 'src/app/models/IProduct';
+import { IProduct } from 'src/app/component/core/models/IProduct';
 import { ShopService } from '../shop.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class ProductDetailsComponent implements OnInit {
         next: (product) => {
           this.product = product;
           console.log(this.product);
-          window.scrollTo({top: 100,left: 100,behavior: "smooth" });
+          window.scrollTo({ top: 100, left: 100, behavior: 'smooth' });
           this.GetRelatedProducts();
         },
         error: (er) => {
@@ -38,15 +38,17 @@ export class ProductDetailsComponent implements OnInit {
 
   GetRelatedProducts() {
     console.log(this.product.category.id);
-    this.shopService.getRelatedProducts(this.product.category.id,this.product.id).subscribe({
-      next: (resp) => {
-        this.relatedProducts = resp;
-        console.log(this.relatedProducts);
-      },
-      error: (e) => {
-        console.log(e);
-      },
-    });
+    this.shopService
+      .getRelatedProducts(this.product.category.id, this.product.id)
+      .subscribe({
+        next: (resp) => {
+          this.relatedProducts = resp;
+          console.log(this.relatedProducts);
+        },
+        error: (e) => {
+          console.log(e);
+        },
+      });
   }
   increaseCount() {
     this.count++;

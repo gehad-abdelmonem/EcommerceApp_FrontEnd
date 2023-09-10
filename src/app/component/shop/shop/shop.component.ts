@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/product.service';
-import { IProduct } from 'src/app/models/IProduct';
-import { ICategory } from 'src/app/models/icategory';
+import { IProduct } from 'src/app/component/core/models/IProduct';
+import { ICategory } from 'src/app/component/core/models/icategory';
 import { ShopService } from '../shop.service';
 import { Ripple, initTE, Dropdown } from 'tw-elements';
-import { shopParams } from 'src/app/models/shopParams';
+import { shopParams } from 'src/app/component/core/models/shopParams';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -57,7 +56,7 @@ export class ShopComponent implements OnInit {
   onPageChange(event: any) {
     this.shopParams.pageNumber = event;
     this.getProducts();
-    window.scrollTo({top: 200,left: 100,behavior: 'smooth',});
+    window.scrollTo({ top: 200, left: 100, behavior: 'smooth' });
   }
   onSearch() {
     this.getProducts();
