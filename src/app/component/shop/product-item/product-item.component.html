@@ -10,13 +10,13 @@
             <a class="no-underline text-black" routerLink="/shop/{{product.id}}">
                 <span class="font-semibold text-xs">{{product.name}}</span>
             </a>
-            <span class="text-danger-600 text-xs">{{product.price|currency:"EPG "}} </span>
+            <span class="text-danger-600 text-xs">{{product.price|currency:"EGp "}} </span>
         </div>
         <div class="flex items-center justify-between   px-3">
             <button class="hover:text-danger-500 text-xs" routerLink="/shop/{{product.id}}"><i
                     class="fa fa-eye text-danger-500"></i> View Detail
             </button>
-            <button class="hover:text-danger-500 text-xs"><i class="fa fa-shopping-cart text-danger-500"></i> Add To
+            <button class="hover:text-danger-500 text-xs" (click)="addItemToBasket()"><i class="fa fa-shopping-cart text-danger-500"></i> Add To
                 Cart
             </button>
         </div>

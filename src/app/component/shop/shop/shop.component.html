@@ -1,6 +1,6 @@
 <div class="mt-3 h-48 bg-primary-50 flex flex-row justify-center items-center mb-16">
     <div class=" w-fit h-fit">
-        <h4>OUR SHOP</h4>
+        <h4 class="selection:bg-danger-500">OUR SHOP</h4>
         <p class="text-xs mt-2 text-center"><a routerLink=""
                 class="text-danger-500 no-underline hover:underline " routerLink="/home">Home</a><span class="text-gray-500"> - Shop</span>
         </p>
@@ -9,10 +9,11 @@
 </div>
 
 <div class="grid sm:grid-cols-12 grid-cols-5"> <!--main container -->
-    <div 
+    <div *ngIf="categories.length>0"
         class="col-span-3 sm:col-span-10 md:col-span-3 lg:col-span-2 lg:col-start-2  md:col-start-2  sm:col-start-2 col-start-2 ">
+        
         <!--category list-->
-        <ul *ngIf="categories"
+        <ul 
             class="md:w-11/12 w-full   text-sm   ps-0 text-gray-900 text-opacity-70 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li class="w-full px-4 py-2 border-b border-gray-200 first:rounded-t-lg" *ngFor="let category of categories"
                 [ngClass]="{'bg-danger-500':shopParams.categoryId==category.id,'text-white':shopParams.categoryId==category.id}"
@@ -21,7 +22,7 @@
         </ul>
     </div>
     <div class="md:col-span-7 lg:col-span-8 sm:col-span-10 sm:col-start-2 col-span-3 col-start-2 ">
-        <div class="grid grid-cols-8">
+        <div class="grid grid-cols-8" *ngIf="productList.length>0" >
             <!--search-->
             <div class="mb-3 col-span-7 sm:col-span-4 md:col-span-5 lg:col-span-3 xl:col-span-3">
                 <div class="relative  flex w-full flex-wrap items-stretch">

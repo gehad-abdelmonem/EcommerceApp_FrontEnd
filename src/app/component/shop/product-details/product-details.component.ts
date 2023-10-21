@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/component/core/models/IProduct';
 import { ShopService } from '../shop.service';
+import { BasketService } from '../../basket/basket.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,8 @@ export class ProductDetailsComponent implements OnInit {
   relatedProducts: IProduct[] = [];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private shopService: ShopService
+    private shopService: ShopService,
+    private basketService: BasketService
   ) {}
   ngOnInit(): void {
     this.loadProduct();
@@ -56,5 +58,9 @@ export class ProductDetailsComponent implements OnInit {
   decreaseCount() {
     if (this.count <= 1) this.count = 1;
     else this.count--;
+  }
+  addItemToCart(item:IProduct)
+  {
+    this.basketService.addItemToBasket(item,this.count);
   }
 }

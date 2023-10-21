@@ -1,0 +1,29 @@
+<div
+    class="block bg-white  " >
+    <div class="  px-3 py-2 font-bold  bg-primary-50 ">
+        Cart Summary
+    </div>
+    <ng-container *ngIf="basketService.basketTotalSource$|async as total" >
+        <div class="p-3 border-primary-50 border">
+            <div class="flex justify-between mb-2">
+                <h6 class="font-normal">Subtotal</h6>
+                <h6 class="font-normal">{{total.subTotal|currency:"EGP "}}</h6>
+            </div>
+            <div class="flex justify-between mb-2">
+                <h6 class="font-normal">Shipping</h6>
+                <h6 class="font-normal">{{total.shipping|currency:"EGP "}}</h6>
+            </div>
+            <p class="mb-3 text-base text-neutral-500 ">
+                Shipping costs will be calculated based on choices made
+                 during checkout.
+            </p>
+        </div>
+        <div class="border border-t-0 border-primary-50 p-3">
+            <div class="flex justify-between mb-2">
+                <h6 class="font-bold">Total</h6>
+                <h6 class="font-bold">{{total.total|currency:"EGP "}}</h6>
+            </div>
+            <button class="bg-danger-500 hover:text-white text-center w-full py-2 rounded-sm text-sm">Proceed To Checkout</button>
+        </div>
+    </ng-container>
+</div>

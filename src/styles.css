@@ -19,8 +19,16 @@ body {
 
 /* pagination style */
 .ngx-pagination .current {
-  background: rgb(224, 112, 129) !important;
+  background: rgb(227, 114, 133) !important;
   border: transparent !important;
   border-radius: 5px !important;
+  text-decoration: none;
   
+}
+.ngx-pagination a
+{
+  text-decoration: none;
+}
+::selection{
+  background-color: rgb(227, 114, 133);
 }
